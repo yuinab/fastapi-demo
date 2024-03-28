@@ -21,7 +21,7 @@ DB = "ncd6fc"
 
 @app.get("/")  # zone apex
 def zone_apex():
-    return {"Hello": "Hello API", "album_endpoint":"/albums","static_endpoint":"/static"}
+    return {"Hello :3": "Hello API", "album_endpoint":"/albums","static_endpoint":"/static"}
 
 
 
