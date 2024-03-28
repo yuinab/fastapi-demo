@@ -16,7 +16,8 @@ app.mount("/static", StaticFiles(directory="static", html = True), name="static"
 DBHOST = os.environ.get('DBHOST')
 DBUSER = os.environ.get('DBUSER')
 DBPASS = os.environ.get('DBPASS')
-DB = "nem2p"
+DB = "ncd6fc"
+
 
 @app.get("/")  # zone apex
 def zone_apex():
@@ -32,6 +33,12 @@ def get_all_albums():
     results = c.fetchall()
     db.close()
     return results
+
+@app.get("/endpoint")
+def endpoint():
+    # Example data
+    ok = "hello"
+    return ok
 
 
 # @app.get("/albums/{id}")
