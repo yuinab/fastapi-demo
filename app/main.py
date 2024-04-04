@@ -21,7 +21,7 @@ DB = "ncd6fc"
 
 @app.get("/")  # zone apex
 def zone_apex():
-    return {"Hello :3": "Hello API", "album_endpoint":"/albums","static_endpoint":"/static"}
+   return {"Hello": "Hello API", "album_endpoint":"/albums","static_endpoint":"/static"}
 
 
 
@@ -34,21 +34,14 @@ def get_all_albums():
     db.close()
     return results
 
-@app.get("/endpoint")
-def endpoint():
-    # Example data
-    ok = "hello"
-    return ok
-
-
-# @app.get("/albums/{id}")
-# def get_one_album(id):
-#     db = MySQLdb.connect(host=DBHOST, user=DBUSER, passwd=DBPASS, db=DB)
-#     c = db.cursor(MySQLdb.cursors.DictCursor)
-#     c.execute("SELECT * FROM albums WHERE id=" + id)
-#     results = c.fetchall()
-#     db.close()
-#     return results
+@app.get("/albums/{id}")
+def get_one_album(id):
+    db = MySQLdb.connect(host=DBHOST, user=DBUSER, passwd=DBPASS, db=DB)
+    c = db.cursor(MySQLdb.cursors.DictCursor)
+    c.execute("SELECT * FROM albums WHERE id=" + id)
+    results = c.fetchall()
+    db.close()
+    return results
     
 
 
